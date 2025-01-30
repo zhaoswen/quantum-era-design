@@ -23,10 +23,10 @@ export async function checkReceptionistLink() {
         });
         console.log(response);
         if (!response.success as boolean) {
-            warn("无法建立中央仓库连接，进入离线状态：" + response.message);
+            warn("中央仓库无法连接，设计器进入离线模式");
         }
     } catch (e) {
-        warn("无法建立中央仓库连接，进入离线状态：" + response.message);
+        warn("中央仓库无法连接，设计器进入离线模式");
     }
 }
 
