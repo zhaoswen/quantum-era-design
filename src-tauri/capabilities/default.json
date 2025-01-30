@@ -1,0 +1,34 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "dialog:default",
+    "opener:allow-open-path",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "dialog:allow-confirm",
+    "dialog:allow-ask",
+    "http:allow-fetch",
+    "http:allow-fetch-send",
+    "http:allow-fetch-read-body",
+    "http:allow-fetch-cancel",
+    "http:default",
+    {
+      "identifier": "http:default",
+      "allowlist": {
+        "all": true,
+        "http": {
+          "all": true
+        }
+      }
+    },
+    "upload:allow-download",
+    "upload:allow-upload"
+  ]
+}

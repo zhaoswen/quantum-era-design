@@ -1,0 +1,44 @@
+/* 公共字体的样式 */
+@font-face {
+        font-family: "dingtalk";
+        src: url("./dingtalk.ttf") format("truetype");
+}
+
+@font-face {
+        font-family: "puhui";
+        src: url("./puhui/Alibaba-PuHuiTi-Regular.ttf") format("truetype");
+        font-weight: normal;
+}
+
+@font-face {
+        font-family: "puhui";
+        src: url("./puhui/Alibaba-PuHuiTi-Light.ttf") format("truetype");
+        font-weight: 300;
+        /* 使用数值表示字体粗细 */
+}
+
+@font-face {
+        font-family: "puhui";
+        src: url("./puhui/Alibaba-PuHuiTi-Bold.ttf") format("truetype");
+        font-weight: 700;
+        /* 使用数值表示字体粗细 */
+}
+
+@font-face {
+        font-family: "puhui";
+        src: url("./puhui/Alibaba-PuHuiTi-Medium.ttf") format("truetype");
+        font-weight: 500;
+        /* 使用数值表示字体粗细 */
+}
+
+@font-face {
+        font-family: "puhui";
+        src: url("./puhui/Alibaba-PuHuiTi-Heavy.ttf") format("truetype");
+        font-weight: 900;
+        /* 使用数值表示字体粗细 */
+}
+
+@font-face {
+        font-family: "hack";
+        src: url("./hack/Hack-Regular.ttf") format("truetype");
+}
