@@ -16,8 +16,8 @@
         "dragDropEnabled": false,
         "width": 1200,
         "height": 600,
-        "shadow": true, 
-        "resizable": true,       
+        "shadow": true,
+        "resizable": true,
         "minWidth": 1000,
         "minHeight": 600
       }
@@ -30,8 +30,8 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/icon.png"
+      "icons/icon.png",
+      "icons/icon.ico"
     ]
   }
 }
-
