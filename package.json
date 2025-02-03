@@ -1,19 +1,17 @@
 {
   "name": "design",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "tauri": "tauri dev",
-    "tauri-build": "tauri build",
-    "ti": "tauri"
+    "tauri-dev": "tauri dev",
+    "tauri-build": "tauri build"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@icon-park/vue-next": "^1.4.2",
     "@tauri-apps/api": "^2.2.0",
     "@tauri-apps/plugin-dialog": "^2.2.0",
     "@tauri-apps/plugin-fs": "^2.2.0",
@@ -28,6 +26,7 @@
     "@vue-flow/core": "^1.41.7",
     "@vue-flow/minimap": "^1.5.0",
     "@vue-flow/node-resizer": "^1.4.0",
+    "@icon-park/vue-next": "^1.4.2",
     "axios": "^1.7.9",
     "element-plus": "^2.9.2",
     "pinia": "^2.3.0",
@@ -35,11 +34,11 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.2.2",
+    "@tauri-apps/cli": "^2.2.7",
     "@vitejs/plugin-vue": "^5.2.1",
     "sass-embedded": "^1.83.1",
     "typescript": "~5.7.2",
-    "vite": "6.0.9",
+    "vite": "6.0.7",
     "vue-tsc": "^2.2.0"
   }
 }
