@@ -1,8 +1,10 @@
 <template>
-  <el-tooltip :content="label" :placement="location" effect="light">
+  <el-tooltip :content="label" :placement="location" effect="light" v-if="label">
     <el-button type="primary" :class="{ 'selected': selected }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
     </el-button>
   </el-tooltip>
+  <el-button v-else type="primary" :class="{ 'selected': selected }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
+  </el-button>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 import {invoke} from "@tauri-apps/api/core";
 import useRuntimeStore from "../store/runtime";
-import {SimxPluginHandlers} from "../entity/plugin";
+import {SimxPluginHandlers} from "../types/plugin";
 import useProjectStore from "../store/project";
 import {getProfileByReceptionist} from "../api/http";
 

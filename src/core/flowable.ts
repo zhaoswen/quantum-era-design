@@ -1,7 +1,7 @@
 import {useVueFlow} from "@vue-flow/core";
 import {ref, watch} from "vue";
 import {v4 as uuidv4} from "uuid";
-import {SimxPluginHandler} from "../entity/plugin";
+import {SimxPluginHandler} from "../types/plugin";
 
 // 生成唯一节点ID的函数
 function getId() {

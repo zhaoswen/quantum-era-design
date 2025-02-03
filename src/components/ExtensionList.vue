@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from 'vue';
 import useRuntimeStore from '../store/runtime';
-import {SimxPlugin} from '../entity/plugin';
+import {SimxPlugin} from '../types/plugin';
 import ExtensionItem from './ExtensionItem.vue';
 
 const runtime = useRuntimeStore();

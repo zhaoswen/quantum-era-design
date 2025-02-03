@@ -1,6 +1,6 @@
 import useProjectStore from "../store/project";
 import {success, warn} from "../tools/message";
-import {compile_blueprint, run_blueprint, save_blueprint} from "./blueprint";
+import {compile_blueprint, create_blueprint, run_blueprint, save_blueprint} from "./blueprint";
 
 
 /**
@@ -51,5 +51,10 @@ export const handleKeyboardEvent = (event: KeyboardEvent,) => {
                 success('当前蓝图已编译');
             });
         }
+    }
+    // Ctrl + N 创建蓝图
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'n') {
+        event.preventDefault(); // 阻止默认行为
+        create_blueprint();
     }
 };

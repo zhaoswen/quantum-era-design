@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
-import {SimxPluginHandlers} from '../entity/plugin';
+import {SimxPluginHandlers} from '../types/plugin';
 
 const useProjectStore = defineStore('project-pinia', () => {
 

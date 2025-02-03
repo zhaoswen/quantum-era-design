@@ -1,17 +1,9 @@
+<!--suppress VueUnrecognizedSlot -->
 <template>
   <div class="design">
     <div class="tools">
       <div class="left">
-        <el-page-header :icon="ArrowLeft" @click="backToProject">
-          <template #title>
-            <span class="blueprint_title_text"> 返回 </span>
-          </template>
-          <template #content>
-            <span class="blueprint_title_text"> {{
-                current_project.active_blueprint == "" ? "未打开文件" : current_project.active_blueprint.split('/').pop()?.split('\\').pop()
-              }} </span>
-          </template>
-        </el-page-header>
+        <MainMenu />
       </div>
       <div class="title_bar right">
         <NaveMenuButtom :icon="Add" label="新建蓝图" location="bottom" @click="createNew"/>
@@ -21,6 +13,7 @@
         <NaveMenuButtom :icon="Deeplink" label="刷新组件属性" location="bottom" @click="refreshProjectDependencies"/>
         <NaveMenuButtom :icon="Erase" label="清空蓝图" location="bottom" @click="cleanFile"/>
         <NaveMenuButtom :icon="CloseOne" label="关闭蓝图" location="bottom" @click="closeFile"/>
+        <NaveMenuButtom :icon="DoubleUp" label="返回工作空间" location="bottom" @click="backToProject"/>
       </div>
     </div>
     <div class="dnd-flow" @drop="onDrop">
@@ -108,13 +101,12 @@
 <script setup lang="ts">
 import {
   Add,
-  ArrowLeft,
   Checkbox,
   CloseOne,
   CodeComputer,
   Components,
   DashboardOne,
-  Deeplink,
+  Deeplink, DoubleUp,
   Erase,
   FolderClose,
   Fork,
@@ -125,7 +117,8 @@ import {
   Save,
   SettingConfig
 } from '@icon-park/vue-next'
-import {computed, onBeforeUnmount, onMounted, ref} from 'vue'
+import {computed, onBeforeUnmount, onMounted} from 'vue'
+import MainMenu from '../components/MainMenu.vue'
 import {NodeMouseEvent, useVueFlow, VueFlow} from '@vue-flow/core'
 import DropzoneBackground from '../components/DropzoneBackground.vue'
 import useDragAndDrop from '../core/flowable.ts'
@@ -160,12 +153,8 @@ const flow_store = useFlowStore();
 
 const config = useConfigStore();
 
-const saved = ref(true);
-
-const isNew = ref(false);
-
 const showBP = computed(() => {
-  return current_project.active_blueprint != '' || isNew.value;
+  return current_project.active_blueprint != '' || flow_store.isNew;
 });
 
 // 初始化事件
@@ -227,8 +216,8 @@ const createNew = () => {
   // 先关闭文件
   closeFile();
   flow_store.name = '蓝图';
-  saved.value = false;
-  isNew.value = true;
+  flow_store.isSave = false;
+  flow_store.isNew = true;
 }
 
 // const openFile = () => {
@@ -270,11 +259,11 @@ const saveFile = () => {
   if (showBP.value && current_project.active_blueprint != '') {
     save_blueprint().then(_ => {
       success('当前蓝图已保存');
-      saved.value = true;
+      flow_store.isSave = true;
     });
   } else {
     saveAsFile()
-    isNew.value = false;
+    flow_store.isSave = false;
   }
 };
 
@@ -299,7 +288,7 @@ const saveAsFile = () => {
       save_blueprint(res as string).then(() => {
         // 设置激活文件
         current_project.active_blueprint = res as string;
-        saved.value = true;
+        flow_store.isSave = true;
       })
     }
   });
@@ -330,7 +319,7 @@ const cleanFile = () => {
   }
   reset_blueprint();
   info('当前蓝图已清空');
-  saved.value = false;
+  flow_store.isSave = false;
 };
 
 // 刷新依赖
@@ -359,7 +348,7 @@ const refreshProjectDependencies = async (force: boolean = true) => {
 const closeFile = () => {
   flow_store.reset();
   current_project.active_blueprint = '';
-  saved.value = false;
+  flow_store.isSave = false;
 };
 
 
@@ -440,7 +429,7 @@ onConnect(addEdges)
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 5px;
   padding-right: 5px;
   border-bottom: #ebebeb 1px solid;
 }
@@ -484,12 +473,6 @@ onConnect(addEdges)
   padding-bottom: 5px;
 }
 
-.blueprint_title_text {
-  color: #626262;
-  font-family: 'dingtalk', serif;
-  font-weight: 400;
-  font-size: 13px;
-}
 
 .empty-description-text {
   color: #474747;

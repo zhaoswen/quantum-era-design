@@ -12,6 +12,10 @@ const useFlowStore = defineStore('vue-flow-pinia', () => {
 
   const edges = ref<Edge[]>([]);
 
+  const isSave = ref(true);
+
+  const isNew = ref(false);
+
   const reset = () => {
     edges.value = [];
     nodes.value = [];
@@ -43,6 +47,8 @@ const useFlowStore = defineStore('vue-flow-pinia', () => {
     nodes,
     edges,
     name,
+    isSave,
+    isNew,
     reset,
     toggleClass,
     updatePositions,

@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
-import {SimxPlugin} from '../entity/plugin';
+import {SimxPlugin} from '../types/plugin';
 
 const useRuntimeStore = defineStore('runtime-pinia', () => {
 

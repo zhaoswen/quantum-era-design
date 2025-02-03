@@ -1,7 +1,7 @@
 import {invoke} from "@tauri-apps/api/core";
 import {error, info, success, warn} from "../tools/message";
 import useRuntimeStore from "../store/runtime";
-import {SimxPlugin} from "../entity/plugin";
+import {SimxPlugin} from "../types/plugin";
 import {download} from "@tauri-apps/plugin-upload";
 import {getOsInfo, OsType} from "../tools/os";
 import useConfigStore from "../store/configuration";
