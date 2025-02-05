@@ -14,7 +14,7 @@ import Workspace from './pages/Workspace.vue'
 import Setting from './pages/Setting.vue'
 import Extension from './pages/Extension.vue'
 import useRuntimeStore from './store/runtime'
-import {checkEnv, initConfig} from './core/init'
+import {checkEnv, initConfig} from "./core/init.ts";
 
 const {onConnect, addEdges} = useVueFlow()
 
@@ -24,10 +24,9 @@ const runtime = useRuntimeStore();
 
 // 初始化事件
 onMounted(() => {
-  // 加载缓存
-  checkEnv().then(() => {
-    initConfig()
-  })
+  checkEnv()
+  initConfig()
+
 })
 
 onConnect(addEdges)

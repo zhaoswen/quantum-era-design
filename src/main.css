@@ -12,7 +12,6 @@ body,
     height: 100%;
     font-family: 'puhui', serif;
     font-weight: normal;
-    /* text-transform: uppercase; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -165,5 +164,4 @@ body,
 
 .custom-node-selected {
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.76);
-    /*border: 1px solid #ffffff;*/
 }

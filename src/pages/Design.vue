@@ -9,7 +9,7 @@
         <NaveMenuButtom :icon="Add" label="新建蓝图" location="bottom" @click="createNew"/>
         <NaveMenuButtom :icon="Save" label="保存修改" location="bottom" @click="saveFile"/>
         <NaveMenuButtom :icon="Lightning" label="运行蓝图" location="bottom" @click="runFile"/>
-        <NaveMenuButtom :icon="Refresh" label="刷新依赖" location="bottom" @click="refreshProjectDependencies"/>
+        <NaveMenuButtom :icon="Refresh" :disabled="true" label="刷新依赖" location="bottom" @click="refreshProjectDependencies"/>
         <NaveMenuButtom :icon="Deeplink" label="刷新组件属性" location="bottom" @click="refreshProjectDependencies"/>
         <NaveMenuButtom :icon="Erase" label="清空蓝图" location="bottom" @click="cleanFile"/>
         <NaveMenuButtom :icon="CloseOne" label="关闭蓝图" location="bottom" @click="closeFile"/>
@@ -22,18 +22,18 @@
           <NaveMenuButtom :icon="FolderClose" label="项目管理" location="right"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'project'"
                           @click="mainBarButtonClick('project', 'left')"/>
-          <NaveMenuButtom :icon="Fork" label="版本控制" location="right"
+          <NaveMenuButtom :icon="Fork" label="版本控制" location="right" :disabled="true"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'vcs'"
                           @click="mainBarButtonClick('vcs', 'left')"/>
           <NaveMenuButtom :icon="Components" label="节点列表" location="right"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'nodes'"
                           @click="mainBarButtonClick('nodes', 'left')"/>
-          <NaveMenuButtom :icon="Checkbox" label="封装包" location="right"
+          <NaveMenuButtom :icon="Checkbox" label="封装包" location="right" :disabled="true"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'container'"
                           @click="mainBarButtonClick('container', 'left')"/>
         </div>
         <div class="mainBarBottom">
-          <NaveMenuButtom :icon="Help" label="项目问题" location="right"
+          <NaveMenuButtom :icon="Help" label="项目问题" location="right" :disabled="true"
                           :selected="runtime.showToolBottom && runtime.currentToolBottom === 'warning'"
                           @click="mainBarButtonClick('warning', 'bottom')"/>
           <NaveMenuButtom :icon="CodeComputer" label="控制台" location="right"
@@ -84,7 +84,7 @@
           <NaveMenuButtom :icon="DashboardOne" label="节点属性" location="left"
                           :selected="runtime.showToolRight && runtime.currentToolRight === 'attr'"
                           @click="mainBarButtonClick('attr', 'right')"/>
-          <NaveMenuButtom :icon="Robot" label="人工智能" location="left"
+          <NaveMenuButtom :icon="Robot" label="人工智能" location="left" :disabled="true"
                           :selected="runtime.showToolRight && runtime.currentToolRight === 'ai'"
                           @click="mainBarButtonClick('ai', 'right')"/>
         </div>

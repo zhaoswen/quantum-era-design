@@ -2,7 +2,6 @@ use tokio::runtime::Runtime;
 
 use crate::compiler::compile::compile;
 use crate::executor::exec::exec;
-use crate::executor::exec::load_engine_serve;
 use crate::executor::exec::set_executable;
 use crate::handle::dir::dir_create;
 use crate::handle::dir::dir_exists;
@@ -27,14 +26,6 @@ mod resolver;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    // let rt = Runtime::new().unwrap();
-    // rt.block_on(async {
-    //     // 异步调用此方法
-    //     tokio::spawn(async move {
-    //         load_engine_serve();
-    //     });
-    // });
-
     tauri::Builder::default()
         .plugin(tauri_plugin_upload::init())
         .plugin(tauri_plugin_log::Builder::new().build())

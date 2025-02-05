@@ -1,23 +1,23 @@
 <template>
   <el-tooltip :content="label" :placement="location" effect="light" v-if="label">
-    <el-button type="primary" :class="{ 'selected': selected }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
+    <el-button type="primary" :class="{ 'selected': selected, 'disabled': disabled }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
     </el-button>
   </el-tooltip>
-  <el-button v-else type="primary" :class="{ 'selected': selected }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
+  <el-button v-else type="primary" :class="{ 'selected': selected, 'disabled': disabled }" class="mainBarButton" @click="mainBarButtonClick" :icon="icon">
   </el-button>
 </template>
 
 <script setup lang="ts">
-// 任意数量的参数
 const mainBarButtonClick = (...attr: any[]) => {
-  emit('click', attr);
+  if (!props.disabled){
+    emit('click', attr);
+  }
 }
 
 // 自定义事件
 const emit = defineEmits(['click']);
 
-
-defineProps({
+const props = defineProps({
   label: {
     type: String,
     required: true,
@@ -32,6 +32,11 @@ defineProps({
     required: true,
   },
   selected: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  disabled: {
     type: Boolean,
     required: false,
     default: false
@@ -66,6 +71,11 @@ defineProps({
 
 .selected{
   color: #69bcff;
+}
+
+.disabled{
+  color: #9f9f9f;
+  cursor: not-allowed;
 }
 
 /* 防止纵向不对齐 */
