@@ -117,7 +117,9 @@ export async function compiler() {
 // 编译并打包蓝图为可执行项目
 export async function compile_package() {
     const runtime = useRuntimeStore();
-    const tmp_path = runtime.engineCorePath + "\\tmp"
+    // const project = useProjectStore();
+    const flow = useFlowStore();
+    const tmp_path = runtime.engineCorePath + "\\tmp\\" + flow.id;
     // 判断文件是否存在
     if (await invoke("dir_exists", {
         path: tmp_path,
@@ -165,7 +167,6 @@ export async function compile_package() {
         source: tmp_path,
         target: runtime.engineCorePath + "\\package.zip"
     });
-
 
     // 提示用户
     success("打包成功");
