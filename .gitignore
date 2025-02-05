@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 src-tauri/设计文件保存成功
 /package-lock.json
+/src-tauri/data/engine/engine.exe

@@ -1,5 +1,3 @@
-use tokio::runtime::Runtime;
-
 use crate::compiler::compile::compile;
 use crate::executor::exec::exec;
 use crate::executor::exec::set_executable;
@@ -11,7 +9,7 @@ use crate::handle::files::check_file_exists;
 use crate::handle::files::read_file;
 use crate::handle::files::write_file;
 use crate::handle::net::request;
-use crate::handle::system::get_user_root_dir;
+use crate::handle::system::{get_current_dir, get_user_root_dir};
 use crate::project::project::create_project;
 use crate::project::project::get_project_info;
 use crate::project::project::get_project_list;
@@ -38,6 +36,8 @@ pub fn run() {
             request,
             // 获取用户根目录
             get_user_root_dir,
+            // 获取当前目录
+            get_current_dir,
             // 判断文件是否存在
             check_file_exists,
             // 判断文件夹是否存在

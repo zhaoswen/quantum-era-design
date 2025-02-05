@@ -167,6 +167,7 @@ export async function openProject(row: any) {
         description: row.description,
         dependencies: row.dependencies,
     }
+
     project.project_dependencies = row.dependencies as Dependency[];
     if (!project.project_dependencies || project.project_dependencies.length == 0){
         project.project_dependencies = [];
@@ -176,8 +177,7 @@ export async function openProject(row: any) {
         })
     }
     await refreshProject();
-    // 尝试加载项目的依赖配置（dependencies）
-    await loadProjectDependencies(row.dependencies)
+    await loadProjectDependencies(project.project_dependencies)
     // 跳转到设计器
     runtime.pageIndex = "1";
 }

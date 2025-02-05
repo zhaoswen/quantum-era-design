@@ -16,3 +16,18 @@ pub fn get_user_root_dir() -> Result<String, String> {
         }
     }
 }
+
+// 获取当前运行目录
+#[command]
+pub fn get_current_dir() -> Result<String, String> {
+    match env::current_dir() {
+        Ok(dir) => {
+            log::debug!("current dir: {}", dir.display());
+            Ok(dir.display().to_string())
+        },
+        Err(e) => {
+            log::error!("Failed to get current directory: {}", e);
+            Err("Failed to get current directory".to_string())
+        }
+    }
+}

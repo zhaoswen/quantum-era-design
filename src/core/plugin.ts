@@ -15,7 +15,6 @@ export const loadProjectDependencies = async (dependencies: Dependency[]) => {
   const runtime = useRuntimeStore();
   const project = useProjectStore();
   let simx_root_dir = runtime.engineCorePath;
-  console.log("Depes ---> ", dependencies)
   for (let index in dependencies) {
     let dependency_path = dependencies[index];
     // 拼接插件处理器配置目录

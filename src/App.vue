@@ -24,8 +24,9 @@ const runtime = useRuntimeStore();
 
 // 初始化事件
 onMounted(() => {
-  checkEnv()
-  initConfig()
+  checkEnv().then(() => {
+    initConfig()
+  })
 
 })
 

@@ -74,7 +74,6 @@ const props = defineProps({
 }
 
 .disabled{
-  color: #9f9f9f;
   cursor: not-allowed;
 }
 

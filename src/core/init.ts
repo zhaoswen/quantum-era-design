@@ -14,10 +14,12 @@ import {SimxPlugin} from "../types/plugin";
  * 如果配置文件夹不存在，则使用默认配置；如果插件配置不存在，则尝试自动修复。
  * @returns 返回一个 Promise，表示环境检查和初始化操作的完成。
  */
-export const checkEnv = () => {
+export const checkEnv = async () => {
     const runtime = useRuntimeStore();
+    let path = await invoke("get_current_dir")
+
     // 加到runtime，其他地方可能会用到这个路径
-    runtime.engineCorePath = ".";
+    runtime.engineCorePath = path + "\\data";
     // 检查中央仓库是否可以连通，不能就报个错误提示一下
     // checkReceptionistLink();
 };
@@ -26,12 +28,14 @@ export const checkEnv = () => {
 export const initConfig = async () => {
     const runtime = useRuntimeStore();
     let simx_root_dir = runtime.engineCorePath;
+    // let res = await invoke("dir_exists", {path: simx_root_dir + "\\extension"})
     // 系统插件列表
     let plugins: SimxPlugin[] = [];
     // 尝试初始化扩展信息（搜索引擎目录下的扩展目录），此目录下每个文件夹都是一个扩展集合（simx以域名区分，可以是二级域名）
     let response: any = await invoke("dir_list", {
-        path: simx_root_dir + "/extension",
+        path: simx_root_dir + "\\extension",
     });
+    // console.log("DDD: dir_exists: ", response,  simx_root_dir + "\\extension")
     // 继续搜索二级域名中的包扩展
     for (let i = 0; i < response.dirs.length; i++) {
         let dir = response.dirs[i];
@@ -44,6 +48,8 @@ export const initConfig = async () => {
             let index_file_response: any = await invoke("read_file", {
                 path: index_file.path,
             });
+            console.log("DDD: index_file_response.json: ", index_file_response);
+
             let plugin: SimxPlugin;
             try {
                 plugin = JSON.parse(index_file_response);
