@@ -1,13 +1,14 @@
 use crate::compiler::compile::compile;
 use crate::executor::exec::exec;
 use crate::executor::exec::set_executable;
-use crate::handle::dir::dir_create;
+use crate::handle::dir::{dir_create, zip_dir};
 use crate::handle::dir::dir_exists;
 use crate::handle::dir::dir_list;
 use crate::handle::dir::dir_remove;
-use crate::handle::files::check_file_exists;
+use crate::handle::files::copy_file;
 use crate::handle::files::read_file;
 use crate::handle::files::write_file;
+use crate::handle::files::{check_file_exists, delete_file};
 use crate::handle::net::request;
 use crate::handle::system::{get_current_dir, get_user_root_dir};
 use crate::project::project::create_project;
@@ -48,10 +49,16 @@ pub fn run() {
             dir_create,
             // 删除文件夹
             dir_remove,
+            // 压缩文件夹
+            zip_dir,
             // 写文件
             write_file,
             // 读文件
             read_file,
+            // 复制文件
+            copy_file,
+            // 删除文件
+            delete_file,
             // 编译
             compile,
             // 解析

@@ -9,6 +9,7 @@
         <NaveMenuButtom :icon="Add" label="新建蓝图" location="bottom" @click="createNew"/>
         <NaveMenuButtom :icon="Save" label="保存修改" location="bottom" @click="saveFile"/>
         <NaveMenuButtom :icon="Lightning" label="运行蓝图" location="bottom" @click="runFile"/>
+        <NaveMenuButtom :icon="Backpack" label="打包蓝图" location="bottom" @click="compile_package"/>
         <NaveMenuButtom :icon="Refresh" :disabled="true" label="刷新依赖" location="bottom" @click="refreshProjectDependencies"/>
         <NaveMenuButtom :icon="Deeplink" label="刷新组件属性" location="bottom" @click="refreshProjectDependencies"/>
         <NaveMenuButtom :icon="Erase" label="清空蓝图" location="bottom" @click="cleanFile"/>
@@ -100,7 +101,7 @@
 
 <script setup lang="ts">
 import {
-  Add,
+  Add, Backpack,
   Checkbox,
   CloseOne,
   CodeComputer,
@@ -142,6 +143,7 @@ import ConsolePanel from '../panel/ConsolePanel.vue'
 import NaveMenuButtom from '../components/NaveMenuButtom.vue'
 import {handleKeyboardEvent} from '../core/event.ts'
 import {loadProjectDependencies} from '../core/plugin.ts'
+import { compile_package } from '../core/compiler.ts'
 import {invoke} from '@tauri-apps/api/core'
 import useConfigStore from "../store/configuration.ts";
 

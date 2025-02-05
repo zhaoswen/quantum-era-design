@@ -91,7 +91,7 @@ export const RequireExtensionProfile = async (extension_path: string) => {
   invoke("dir_create", { path: simx_extension_path + "/service" });
 
   // 循环创建插件中所有处理器的配置文件
-  if (handlers && handlers != null) {
+  if (handlers) {
     for (let i = 0; i < handlers.length; i++) {
       let group = handlers[i];
       // 创建处理器配置文件
@@ -134,7 +134,7 @@ export const RequireExtensionProfile = async (extension_path: string) => {
   }
 
   // TODO：循环创建插件中所有服务的配置文件
-  if (services && services != null) {
+  if (services) {
     for (let i = 0; i < services.length; i++) {
       // let service = services[i];
       // 创建处理器配置文件
@@ -150,7 +150,7 @@ function fixDefaultVarType(str: string, types: string): any {
     case "Number":
       return Number(str);
     case "Boolean":
-      return str == "true" ? true : false;
+      return str == "true";
     case "Array":
       return JSON.parse(str);
     case "Object":

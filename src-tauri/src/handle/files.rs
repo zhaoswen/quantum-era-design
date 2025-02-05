@@ -25,6 +25,30 @@ pub fn read_file(path: &str) -> Result<String, String> {
     }
 }
 
+// 复制文件，必须两者都是文件或都是路径
+#[command]
+pub fn copy_file(source: &str, target: &str) -> Result<(), String> {
+    match fs::copy(source, target) {
+        Ok(_) => Ok(()),
+        Err(e) =>{
+            Err(e.to_string())
+        },
+    }
+}
+
+// 删除文件
+#[command]
+pub fn delete_file(path: &str) -> Result<(), String> {
+
+    match fs::remove_file(path) {
+        Ok(_) => Ok(()),
+        Err(e) => {
+            println!("删除文件失败: {}", e.to_string());
+            Err(e.to_string())
+        },
+    }
+}
+
 // 检查文件是否存在
 #[command]
 pub fn check_file_exists(path: &str) -> bool {

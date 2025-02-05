@@ -25,6 +25,8 @@ tauri-plugin-store = "2"
 tauri-plugin-log = "2"
 tauri-plugin-upload = "2"
 log = "0.4.25"
+zip = "2.2.2"
+walkdir = "2.3"
 
 [profile.release]
 codegen-units = 1 # 允许 LLVM 执行更好地优化。
