@@ -6,18 +6,16 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           文件
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>创建蓝图</el-dropdown-item>
-            <el-dropdown-item>创建项目</el-dropdown-item>
-            <el-dropdown-item divided>关闭蓝图</el-dropdown-item>
-            <el-dropdown-item>关闭项目</el-dropdown-item>
-            <el-dropdown-item divided>项目属性</el-dropdown-item>
-            <el-dropdown-item>退出程序</el-dropdown-item>
+            <el-dropdown-item>创建新蓝图</el-dropdown-item>
+            <el-dropdown-item>创建新项目</el-dropdown-item>
+            <el-dropdown-item divided>关闭当前蓝图</el-dropdown-item>
+            <el-dropdown-item>回到工作空间</el-dropdown-item>
+            <el-dropdown-item>关闭当前项目</el-dropdown-item>
+            <el-dropdown-item divided>修改项目属性</el-dropdown-item>
+            <el-dropdown-item>退出设计器程序</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -25,12 +23,11 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           编辑
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
+            <el-dropdown-item>撤销</el-dropdown-item>
+            <el-dropdown-item>重做</el-dropdown-item>
             <el-dropdown-item>复制</el-dropdown-item>
             <el-dropdown-item>粘贴</el-dropdown-item>
             <el-dropdown-item>剪切</el-dropdown-item>
@@ -42,9 +39,6 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           执行
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -57,9 +51,6 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           编译
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -75,9 +66,6 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           工具
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -93,9 +81,6 @@
       <el-dropdown>
         <span class="el-dropdown-link">
           帮助
-          <el-icon class="el-icon--right">
-            <arrow-down/>
-          </el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -107,58 +92,24 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <!--        <el-button v-for="button in buttons" :key="button.label" type="text" class="expanded-button"-->
-      <!--                   @click="handleButtonClick(button)">-->
-      <!--          {{ button.label }}-->
-      <!--        </el-button>-->
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent, ref} from 'vue';
-import {ElButton} from 'element-plus';
+<script lang="ts" setup>
+import {ref} from 'vue';
 import {HamburgerButton, MenuUnfold} from "@icon-park/vue-next";
 import NaveMenuButtom from "./NaveMenuButtom.vue";
 
-export default defineComponent({
-  components: {
-    NaveMenuButtom,
-    ElButton,
-  },
-  setup() {
-    const isExpanded = ref(false);
-    const currentIcon = ref(HamburgerButton);
-    const buttons = [
-      {label: '文件', action: () => console.log('Button 1 clicked')},
-      {label: '编辑', action: () => console.log('Button 2 clicked')},
-      {label: '视图', action: () => console.log('Button 3 clicked')},
-      {label: '工具', action: () => console.log('Button 4 clicked')},
-      {label: '调试', action: () => console.log('Button 5 clicked')},
-      {label: '编译', action: () => console.log('Button 6 clicked')},
-      {label: '版本', action: () => console.log('Button 7 clicked')},
-      {label: '窗口', action: () => console.log('Button 8 clicked')},
-      {label: '帮助', action: () => console.log('Button 9 clicked')},
-    ];
 
-    const toggleExpand = () => {
-      isExpanded.value = !isExpanded.value;
-      currentIcon.value = isExpanded.value ? MenuUnfold : HamburgerButton;
-    };
+const isExpanded = ref(false);
+const currentIcon = ref(HamburgerButton);
 
-    const handleButtonClick = (button: { label: string; action: () => void }) => {
-      button.action();
-    };
+const toggleExpand = () => {
+  isExpanded.value = !isExpanded.value;
+  currentIcon.value = isExpanded.value ? MenuUnfold : HamburgerButton;
+};
 
-    return {
-      isExpanded,
-      currentIcon,
-      buttons,
-      toggleExpand,
-      handleButtonClick,
-    };
-  },
-});
 </script>
 
 <style scoped>
@@ -167,11 +118,6 @@ export default defineComponent({
   align-items: center;
 }
 
-.expanded-buttons {
-  display: flex;
-  margin-left: 10px;
-  overflow: visible; /* 确保不会隐藏过渡效果 */
-}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -185,12 +131,16 @@ export default defineComponent({
 }
 
 .expanded-button {
-  margin-left: 15px;
-  padding-top: 5px;
+  padding-top: 3px;
   color: #606266;
   font-size: 12px;
   margin-right: 5px;
   font-weight: normal;
   font-family: "dingtalk", sans-serif;
 }
+
+.expanded-button >  * {
+  margin-left: 15px;
+}
+
 </style>

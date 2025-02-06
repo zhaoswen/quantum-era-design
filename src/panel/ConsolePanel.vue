@@ -4,11 +4,11 @@ import useRuntimeStore from '../store/runtime.ts';
 import useDragAndDrop from '../core/flowable.ts'
 import NavePanel from '../components/NavePanel.vue';
 import {getLogType} from '../tools/logs.ts'
+import NaveMenuButtom from "../components/NaveMenuButtom.vue";
+import {DeleteOne} from "@icon-park/vue-next";
 
 useDragAndDrop()
 const runtime = useRuntimeStore();
-
-
 
 watch(() => runtime.consoleOutput.length, async () => {
     await nextTick();
@@ -21,9 +21,9 @@ watch(() => runtime.consoleOutput.length, async () => {
 </script>
 
 <template>
-    <NavePanel title="调试台" locationBorder="top">
+    <NavePanel title="调试台" locationBorder="top" class="panels">
         <template #header>
-            <el-button link @click="runtime.consoleOutput = []">清空</el-button>
+          <NaveMenuButtom :icon="DeleteOne" location="" label="清空控制台" @click="runtime.consoleOutput = []"/>
         </template>
         <div class="engine-console">
             <div class="console-main">
@@ -35,12 +35,14 @@ watch(() => runtime.consoleOutput.length, async () => {
 </template>
 
 <style scoped>
-
+.panels{
+  height: 250px;
+}
 .engine-console {
     flex: 1;
     padding-top: 10px;
     padding-bottom: 10px;
-    max-height: 250px;
+    max-height: 230px;
 }
 
 .console-main {
@@ -66,7 +68,6 @@ watch(() => runtime.consoleOutput.length, async () => {
 }
 
 .console-content {
-    /* background-color: #696969; */
     color: white;
     font-family: 'hack',serif;
     font-size: 13px;
