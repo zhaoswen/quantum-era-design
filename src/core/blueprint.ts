@@ -6,6 +6,7 @@ import {refreshProject} from "./project";
 import {compiler} from "./compiler";
 import {v4 as uuidv4} from "uuid";
 import useRuntimeStore from "../store/runtime";
+import {sep} from "@tauri-apps/api/path";
 
 // 创建蓝图
 export function create_blueprint() {
@@ -182,7 +183,7 @@ export async function run_blueprint() {
     await compile_blueprint();
     // 分析蓝图编译后文件
     let target_bp_path =
-        current_project.project_path + "/target/lib/" + flow_store.id + ".bp";
+        current_project.project_path + sep() + "target" + sep() + "lib" + sep() + flow_store.id + ".bp";
     // 调用本地引擎执行
     try {
         invoke("exec", {path: target_bp_path}).then(res => {
@@ -196,7 +197,10 @@ export async function run_blueprint() {
             lines.forEach((line) => {
                 runtime.consoleOutput.push(line);
             });
-        })
+        }).catch((e) => {
+            error(e as string, 1200);
+            return;
+        });
     } catch (e) {
         error(e as string, 1200);
         return;

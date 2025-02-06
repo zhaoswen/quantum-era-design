@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CollapsibleMenu: typeof import('./src/components/CollapsibleMenu.vue')['default']
+    CollapsibleTools: typeof import('./src/components/CollapsibleTools.vue')['default']
     DropzoneBackground: typeof import('./src/components/DropzoneBackground.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']

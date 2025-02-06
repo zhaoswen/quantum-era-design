@@ -2,6 +2,7 @@ import {invoke} from "@tauri-apps/api/core";
 import {error} from "../tools/message";
 import useRuntimeStore from "../store/runtime";
 import {SimxPlugin} from "../types/plugin";
+import {sep} from "@tauri-apps/api/path";
 
 // 检查本地环境状态
 /**
@@ -19,7 +20,7 @@ export const checkEnv = async () => {
     let path = await invoke("get_current_dir")
 
     // 加到runtime，其他地方可能会用到这个路径
-    runtime.engineCorePath = path + "\\data";
+    runtime.engineCorePath = path + sep() + "data";
     // 检查中央仓库是否可以连通，不能就报个错误提示一下
     // checkReceptionistLink();
 };
@@ -28,14 +29,12 @@ export const checkEnv = async () => {
 export const initConfig = async () => {
     const runtime = useRuntimeStore();
     let simx_root_dir = runtime.engineCorePath;
-    // let res = await invoke("dir_exists", {path: simx_root_dir + "\\extension"})
     // 系统插件列表
     let plugins: SimxPlugin[] = [];
     // 尝试初始化扩展信息（搜索引擎目录下的扩展目录），此目录下每个文件夹都是一个扩展集合（simx以域名区分，可以是二级域名）
     let response: any = await invoke("dir_list", {
-        path: simx_root_dir + "\\extension",
+        path: simx_root_dir + sep() + "extension",
     });
-    // console.log("DDD: dir_exists: ", response,  simx_root_dir + "\\extension")
     // 继续搜索二级域名中的包扩展
     for (let i = 0; i < response.dirs.length; i++) {
         let dir = response.dirs[i];

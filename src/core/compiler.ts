@@ -5,6 +5,7 @@ import useProjectStore from "../store/project";
 import {error, success} from "../tools/message";
 import useRuntimeStore from "../store/runtime.ts";
 import {getOsInfo, OsType} from "../tools/os.ts";
+import {sep} from "@tauri-apps/api/path";
 
 
 /**
@@ -104,7 +105,7 @@ export async function compiler() {
     blueprint_file["requirements"] = [];
     // 设计文件名称
     // target/lib目录是编译后蓝图的存储位置
-    let o_file = current_project.project_path + "/target/lib/" + flow_store.id + ".bp";
+    let o_file = current_project.project_path + sep() +  "target"+ sep() + "lib" + sep() +  flow_store.id + ".bp";
     // 调用存储
     await invoke("compile", {
         content: JSON.stringify(blueprint_file),
@@ -117,9 +118,8 @@ export async function compiler() {
 // 编译并打包蓝图为可执行项目
 export async function compile_package() {
     const runtime = useRuntimeStore();
-    // const project = useProjectStore();
     const flow = useFlowStore();
-    const tmp_path = runtime.engineCorePath + "\\tmp\\" + flow.id;
+    const tmp_path = runtime.engineCorePath + sep() + "tmp" + sep() + flow.id;
     // 判断文件是否存在
     if (await invoke("dir_exists", {
         path: tmp_path,
@@ -134,7 +134,7 @@ export async function compile_package() {
         path: tmp_path,
     });
     let engine_exec: string;
-    let engine_raw_path = runtime.engineCorePath + "\\engine"
+    let engine_raw_path = runtime.engineCorePath + sep() + "engine"
     switch (getOsInfo()) {
         case OsType.Windows:
             engine_exec = "engine.exe"
@@ -143,29 +143,29 @@ export async function compile_package() {
             engine_exec = "engine"
             break;
     }
-    engine_raw_path += "\\" + engine_exec
+    engine_raw_path += sep() + engine_exec
     // 复制引擎到缓存目录
     await invoke("copy_file", {
         source: engine_raw_path,
-        target: tmp_path + "\\" + engine_exec,
+        target: tmp_path + +sep() + engine_exec,
     });
     // 创建flow/init目录
     await invoke("dir_create", {
-        path: tmp_path + "\\flow\\init",
+        path: tmp_path + sep() + "flow" + sep() + "init",
     });
     // // 尝试编译蓝图
     let compiler_file = await compiler();
     // // 将编译后的产物复制到init文件夹中
     await invoke("copy_file", {
         source: compiler_file,
-        target: tmp_path + "\\flow\\init\\main.bp",
+        target: tmp_path + sep() + "flow" + sep() + "init" + sep() + "main.bp",
     });
 
     // 打zip包
     // TODO：有问题这里...
     await invoke("zip_dir", {
         source: tmp_path,
-        target: runtime.engineCorePath + "\\package.zip"
+        target: runtime.engineCorePath + sep() +  "package.zip"
     });
 
     // 提示用户
