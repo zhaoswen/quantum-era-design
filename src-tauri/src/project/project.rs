@@ -95,7 +95,7 @@ pub fn create_project(
     project_template: String,
 ) -> Result<String, InvokeError> {
     // 暂时不管类型和模板（因为现在不支持。。。）
-
+    println!("Create -> {}, {}, {}", project_path, project_type, project_template);
     if fs::create_dir_all(&project_path).is_err() {
         return Err(InvokeError::from("创建基础目录失败"));
     }

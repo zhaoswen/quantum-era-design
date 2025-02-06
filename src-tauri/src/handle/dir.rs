@@ -1,11 +1,6 @@
 use serde_json::{json, Value};
 use std::{fs, vec};
 use tauri::command;
-use std::fs::File;
-use std::io;
-use std::path::Path;
-use walkdir::WalkDir;
-use zip::{write::FileOptions, CompressionMethod, ZipWriter};
 
 #[command]
 // 获取文件夹内容
@@ -62,6 +57,8 @@ pub fn dir_exists(path: String) -> Result<bool, String> {
 // TODO：有问题...
 #[command]
 pub fn zip_dir(source: String, target: String) -> Result<(), String> {
+    println!("source: {}", source);
+    println!("target: {}", target);
     // // 创建目标 ZIP 文件
     // let file = File::create(&target).map_err(|e| e.to_string())?;
     // let mut zip_writer = ZipWriter::new(file);
