@@ -308,7 +308,7 @@ onConnect(addEdges)
   justify-content: end;
   align-items: center;
   gap: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .empty-description-text {

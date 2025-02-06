@@ -4,6 +4,7 @@ import {ElButton, ElContainer, ElMain} from 'element-plus';
 import {createProject, deleteProject, loadCache, openProject, openWorkspace, reflushProjectList} from '../core/project'
 import useProjectStore from '../store/project';
 import {computed, onMounted} from 'vue';
+import NaveMenuButtom from "../components/NaveMenuButtom.vue";
 
 const project_store = useProjectStore();
 
@@ -25,40 +26,36 @@ const workspaceOpend = computed(() => {
     <el-aside class="aside">
       <div>
         <!-- 图片Logo -->
-        <img src="/icon.png" class="logo" alt="Logo" />
+        <img src="/icon.png" class="logo" alt="Logo"/>
         <!-- 标题 -->
         <span class="title">Simx Flow Design</span>
         <div class="description">Simx Era Design 2025.1 春季版</div>
         <div>
-          <el-button type="primary" link @click="openWorkspace">打开工作区</el-button>
+          <el-tooltip content="点击打开工作区，也可以选择一个空文件夹作为工作区" placement="bottom" effect="light">
+            <el-button type="primary" link @click="openWorkspace">点击打开一个工作区</el-button>
+          </el-tooltip>
         </div>
       </div>
     </el-aside>
     <el-main class="main">
       <div class="flex flex-wrap gap-4" style="height: 100%">
         <el-table :data="project_store.projects" v-show="workspaceOpend" style="width: 100%"
-          empty-text="未识别到项目，创建或打开其他目录" class="table">
-          <el-table-column label="项目名称" prop="name" />
-          <el-table-column label="项目描述" prop="description" />
-          <el-table-column label="项目路径" show-overflow-tooltip prop="path" />
+                  empty-text="未识别到项目，创建或打开其他目录" class="table">
+          <el-table-column label="项目名称" prop="name"/>
+          <el-table-column label="项目描述" prop="description"/>
+          <el-table-column label="项目路径" show-overflow-tooltip prop="path"/>
           <el-table-column align="right">
             <template #header>
-              <el-tooltip content="创建项目" placement="bottom" effect="light">
-                <el-button type="primary" size="small" :icon="Plus" @click="createProject"></el-button>
-              </el-tooltip>
-              <el-tooltip content="刷新列表" placement="bottom" effect="light">
-                <el-button type="primary" size="small" :icon="RefreshOne" @click="reflushProjectList()"></el-button>
-              </el-tooltip>
+              <div class="headler-button">
+                <NaveMenuButtom :icon="Plus" location="" label="创建项目" @click="createProject"/>
+                <NaveMenuButtom :icon="RefreshOne" location="" label="刷新列表" @click="reflushProjectList"/>
+              </div>
             </template>
             <template #default="scope">
-              <el-tooltip content="进入项目" placement="bottom" effect="light">
-                <el-button size="small" type="primary" :icon="FolderOpen" @click="openProject(scope.row)">
-                </el-button>
-              </el-tooltip>
-              <el-tooltip content="删除项目" placement="bottom" effect="light">
-                <el-button size="small" :icon="DeleteOne" type="danger" @click="deleteProject(scope.row)">
-                </el-button>
-              </el-tooltip>
+              <div class="headler-button">
+                <NaveMenuButtom :icon="FolderOpen" location="" label="进入项目" @click="openProject(scope.row)"/>
+                <NaveMenuButtom :icon="DeleteOne" location="" label="删除项目" @click="deleteProject(scope.row)"/>
+              </div>
             </template>
           </el-table-column>
         </el-table>
@@ -76,7 +73,14 @@ const workspaceOpend = computed(() => {
 }
 
 .table {
-  font-family: 'puhui',serif;
+  font-family: 'puhui', serif;
+}
+
+.headler-button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
 }
 
 .aside {
@@ -95,7 +99,7 @@ const workspaceOpend = computed(() => {
 
 .title {
   font-size: 25px;
-  font-family: 'dingtalk',serif;
+  font-family: 'dingtalk', serif;
   font-weight: bold;
   margin-bottom: 15px;
   color: #000;
@@ -108,6 +112,6 @@ const workspaceOpend = computed(() => {
   margin-bottom: 50px;
   color: #5b5b5b;
   display: block;
-  font-family: 'dingtalk',serif;
+  font-family: 'dingtalk', serif;
 }
 </style>

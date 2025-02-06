@@ -153,7 +153,12 @@ export async function compile_blueprint() {
  *
  * @returns 返回一个 Promise 对象，表示移除蓝图操作的最终完成（或失败）及其结果值。
  */
-export async function remove_blueprint() {
+export async function remove_blueprint(path: string)  {
+    // 如果是当前的蓝图，关闭再删除，要不数据残留在设计器里了
+    if (useProjectStore().active_blueprint == path) {
+        close_blueprint();
+    }
+    return invoke("delete_file", {path: path});
 }
 
 // 重置（清空）蓝图文件

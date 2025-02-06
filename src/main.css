@@ -54,7 +54,7 @@ body,
 
 /* 添加自定义主题色 */
 :root {
-    --el-color-primary: #69bcff;
+    --el-color-primary: #00a6ff;
 }
 
 .el-menu--horizontal>.el-menu-item.is-active {
@@ -63,7 +63,7 @@ body,
 
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover{
     background-color: transparent;
-    color: #69bcff;
+    color: #00a6ff;
 }
 
 .el-collapse {
