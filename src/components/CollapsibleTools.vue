@@ -64,7 +64,7 @@ const createNew = () => {
   flow_store.isNew = true;
 }
 
-
+// 保存蓝图
 const saveFile = () => {
   // 如果当前有活跃的蓝图，就覆盖，如果没有，就让用户选择保存位置
   if (showBP.value && current_project.active_blueprint != '') {
