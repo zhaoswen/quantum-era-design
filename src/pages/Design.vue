@@ -6,14 +6,6 @@
         <MainMenu/>
       </div>
       <div class="title_bar right">
-        <!--        <NaveMenuButtom :icon="Add" label="新建蓝图" location="bottom" @click="createNew"/>-->
-        <!--        <NaveMenuButtom :icon="DownloadThree" label="保存修改" location="bottom" @click="saveFile"/>-->
-        <!--        <NaveMenuButtom :icon="Lightning" label="运行蓝图" location="bottom" @click="runFile"/>-->
-        <!--        <NaveMenuButtom :icon="ApplicationOne" label="打包蓝图" location="bottom" @click="compile_package"/>-->
-        <!--        <NaveMenuButtom :icon="Refresh" :disabled="true" label="刷新依赖" location="bottom" @click="refreshProjectDependencies"/>-->
-        <!--        <NaveMenuButtom :icon="Deeplink" label="刷新组件属性" location="bottom" @click="refreshProjectDependencies"/>-->
-        <!--        <NaveMenuButtom :icon="Erase" label="清空蓝图" location="bottom" @click="cleanFile"/>-->
-        <!--        <NaveMenuButtom :icon="CloseOne" label="关闭蓝图" location="bottom" @click="closeFile"/>-->
         <CollapsibleTools/>
       </div>
     </div>
@@ -318,7 +310,6 @@ onConnect(addEdges)
   gap: 10px;
   padding-bottom: 5px;
 }
-
 
 .empty-description-text {
   color: #474747;

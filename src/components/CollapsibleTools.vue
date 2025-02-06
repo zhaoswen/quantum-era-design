@@ -15,7 +15,7 @@
         <NaveMenuButtom :icon="DoubleUp" label="返回工作空间" location="bottom" @click="backToProject"/>
       </transition-group>
     </div>
-    <NaveMenuButtom :icon="currentIcon" location="" label="" @click="toggleExpand"/>
+    <NaveMenuButtom :icon="Tool" location="" label="显示/隐藏工具栏" @click="toggleExpand"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ import {
   CloseOne,
   DoubleUp,
   DownloadThree,
-  Lightning, MoreApp,
+  Lightning, MoreApp, Tool,
 } from "@icon-park/vue-next";
 import NaveMenuButtom from "./NaveMenuButtom.vue";
 import {compile_package} from "../core/compiler.ts";
@@ -48,7 +48,7 @@ const runtime = useRuntimeStore();
 
 const toggleExpand = () => {
   isExpanded.value = !isExpanded.value;
-  currentIcon.value = isExpanded.value ? MoreApp : MoreApp;
+  currentIcon.value = isExpanded.value ? Tool : Tool;
 };
 
 const showBP = computed(() => {
@@ -170,11 +170,5 @@ const closeFile = () => {
   display: flex;
   margin-left: 10px;
   overflow: visible;
-}
-
-.expanded-button {
-  color: #606266;
-  font-size: 13px;
-  margin-right: 5px;
 }
 </style>
