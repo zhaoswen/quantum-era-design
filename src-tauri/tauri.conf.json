@@ -12,9 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "Design",
+        "title": "Era Design",
         "dragDropEnabled": false,
-        "width": 1200,
+        "width": 1000,
         "height": 600,
         "shadow": true,
         "resizable": true,

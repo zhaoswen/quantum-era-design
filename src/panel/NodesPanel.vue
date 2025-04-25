@@ -86,12 +86,23 @@ const project = useProjectStore();
   width: 100%;
 }
 
+.sidebar .nodes {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: left; /* 子元素之间有间距 */
+  align-items: flex-start;
+  justify-items: center;
+}
+
 .sidebar .nodes > div {
   margin-bottom: 10px;
+  margin-right: 10px; /* 添加水平间距 */
+  font-size: 11px;
   text-align: center;
-  line-height: 35px;
-  height: 35px;
-  width: 100%;
+  line-height: 30px;
+  height: 30px;
+  /*width: calc(33.333% - 10px); */
+  width: 90px; /* 每行显示三个节点 */
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
@@ -104,30 +115,30 @@ const project = useProjectStore();
 .sidebar_start {
   color: #fff;
   font-weight: bold;
-  background-color: rgb(105, 123, 255);
+  background-color: rgb(5, 88, 35);
+}
+
+.sidebar_start:hover {
+  background-color: rgb(4, 158, 59);
 }
 
 .sidebar_exec {
   color: #fff;
   font-weight: bold;
-  background-color: rgb(105, 200, 255);
+  background-color: rgb(0, 94, 149);
 }
 
 .sidebar_exec:hover {
-  background-color: rgb(0, 162, 255);
-}
-
-.sidebar_start:hover {
-  background-color: rgb(0, 30, 255);
+  background-color: rgb(0, 113, 181);
 }
 
 .sidebar_note {
   color: #fff;
   font-weight: bold;
-  background-color: #ddc258;
+  background-color: #939393;
 }
 
 .sidebar_note:hover {
-  background-color: #ae9222;
+  background-color: #b5b5b5;
 }
 </style>

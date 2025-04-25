@@ -21,14 +21,14 @@ watch(() => runtime.attr.basic.id, (newVal) => {
     <div class="custom-node start_node" :class="boxClass">
         <AssemblyLine class="icon" />
         <div>{{ data.basic.label }}</div>
-        <Handle type="source" :position="Position.Bottom" />
+        <Handle type="source" :position="Position.Right" />
     </div>
 </template>
 
 <style scoped>
 .start_node {
     color: #fff;
-    background: rgb(105, 123, 255);
+    background: rgb(5, 88, 35);
 }
 .icon{
     margin-right: 5px;

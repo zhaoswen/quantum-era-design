@@ -19,17 +19,17 @@ watch(() => runtime.attr.basic.id, (newVal) => {
 
 <template>
     <div class="custom-node exec_node" :class="boxClass">
-        <Handle type="target" :position="Position.Top" />
+        <Handle type="target" :position="Position.Left" />
         <Components class="icon" />
         <div>{{ data.basic.label }}</div>
-        <Handle type="source" :position="Position.Bottom" />
+        <Handle type="source" :position="Position.Right" />
     </div>
 </template>
 
 <style scoped>
 .exec_node {
     color: #fff;
-    background: rgb(105, 200, 255);
+    background: rgb(0, 94, 149);
 }
 .icon{
     margin-right: 5px;

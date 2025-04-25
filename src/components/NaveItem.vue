@@ -50,13 +50,13 @@ const emit = defineEmits(['click']);
 }
 
 .nave-item:hover {
-  background-color: #69bcff;
+  background-color: #12814c;
   color: white;
   /* box-shadow: 1px 1px 1px #ebebeb; */
 }
 
 .selected {
-  color: #69bcff;
+  color: #12814c;
 }
 
 </style>

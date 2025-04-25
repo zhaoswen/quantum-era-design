@@ -5,8 +5,8 @@
 > Simx Era Design
 >
 > Noah Jones / NJ Labs
-> 
-> 2025年01月30日
+>
+> 2025年04月30日
 >
 
 ## 介绍
@@ -41,11 +41,10 @@ Simx Era Design 以项目（Project）的方式组织多个业务，通过工作
 
 我们通过Tauri提供了一套默认的安装包，推荐一切没有定制化需求的用户使用，你可以直接下载安装：
 
-> 注意，目前维护者人数有限，仅对 Windows 11 较新版本及 Macos Sequoia 15.3 （ARM）版本提供支持，理论支持旧版本操作系统，但不直接参与支持，如果发现问题请在社区反馈
+> 注意，目前维护者人数有限，仅对 Windows 11 较新版本及 Macos Sequoia 15.4 （ARM）版本提供支持，理论支持旧版本操作系统，但不直接参与支持，如果发现问题请在社区反馈
 
 - [Windows](https://github.com/njlabs/simx-era-design/releases/download/v0.1.0/simx-era-design-0.1.0-x86_64-pc-windows-msvc.zip)
 - [MacOS](https://github.com/njlabs/simx-era-design/releases/download/v0.1.0/simx-era-design-0.1.0-aarch64-apple-darwin.zip)
-- [Linux](https://github.com/njlabs/simx-era-design/releases/download/v0.1.0/simx-era-design-0.1.0-aarch64-apple-darwin.zip)
 
 #### 编译安装
 
@@ -119,4 +118,4 @@ Simx Era Design 遵循以下更新原则
 
 ## 项目历史
 
-最早可以追溯到19年左右编写的一个RPA设计器，当时使用Electron框架进行编写，后续改为使用Tauri框架重构
+最早可以追溯到19年左右编写的一个RPA设计器，当时使用Electron框架进行编写，后续改为使用Tauri框架重构。

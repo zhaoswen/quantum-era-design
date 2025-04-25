@@ -133,7 +133,7 @@ const toggleExpand = () => {
 .expanded-button {
   padding-top: 3px;
   color: #606266;
-  font-size: 12px;
+  font-size: 10px;
   margin-right: 5px;
   font-weight: normal;
   font-family: "dingtalk", sans-serif;

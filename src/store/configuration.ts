@@ -11,7 +11,8 @@ const useConfigStore = defineStore('config-pinia', () => {
         // 多语言
         language: "zh-CN",
         // 主题颜色
-        theme_color: "#69bcff",
+        // theme_color: "#69bcff",
+        theme_color: "#206f36",
     });
 
     // 中央仓库配置

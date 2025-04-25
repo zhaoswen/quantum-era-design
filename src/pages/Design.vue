@@ -62,9 +62,10 @@
               <PackNode v-bind="packNodeProps"/>
             </template>
           </VueFlow>
-          <el-empty class="empty" image="/icon.png" v-else>
+          <el-empty class="empty" image-size=0 v-else>
             <template #description>
-              <span class="empty-description-text">Simx Era 设计器</span>
+              <p class="empty-description-title">Simx Era Design</p>
+              <p class="empty-description-text">适用于 Simx Quantum Engine 的流程设计器</p>
             </template>
           </el-empty>
         </div>
@@ -198,13 +199,12 @@ onConnect(addEdges)
 .panel {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 235px;
 }
 
 .mainBar {
   height: 100%;
   /* width: 45px; */
-  padding-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
   /* 元素纵向排列，顶对齐，水平居中，间隔10px */
@@ -250,9 +250,8 @@ onConnect(addEdges)
 .design {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 11px);
+  height: calc(100% - 1px);
   border-top: #ebebeb 1px solid;
-
 }
 
 .design-content {
@@ -302,6 +301,10 @@ onConnect(addEdges)
   gap: 10px;
 }
 
+.mainBarTop > :first-child {
+  margin-top: 5px;
+}
+
 .mainBarBottom {
   display: flex;
   flex-direction: column;
@@ -311,10 +314,18 @@ onConnect(addEdges)
   padding-bottom: 10px;
 }
 
-.empty-description-text {
-  color: #474747;
+.empty-description-title {
+  color: #8c8c8c;
   font-family: 'dingtalk', serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.empty-description-text {
+  color: #b8b8b8;
+  font-family: 'dingtalk', serif;
+  font-weight: 200;
+  font-size: 13px;
 }
 </style>

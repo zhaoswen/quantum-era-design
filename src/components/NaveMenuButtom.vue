@@ -66,11 +66,12 @@ const props = defineProps({
 .mainBarButton:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.29);
   color: #ffffff;
+  background-color: #12814c;
   border: none;
 }
 
 .selected{
-  color: #69bcff;
+  color: #12814c;
 }
 
 .disabled{

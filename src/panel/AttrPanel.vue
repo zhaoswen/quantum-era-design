@@ -49,11 +49,11 @@
             </el-tab-pane>
             <el-tab-pane label="自定义" name="custom">
                 <el-form :model="runtime.attr.custom" label-position="top">
-                    <div v-for="(item, index) in Object.keys(runtime.attr.custom)">
+                    <div v-for="(_, index) in Object.keys(runtime.attr.custom)">
                         <el-input :prefix-icon="MilkTea" v-model="runtime.attr.custom[index]" placeholder="格式key:value"
                             class="input-with-custom">
                             <template #append>
-                                <el-button type="warning" @click="handleCustomRemove(index)" :icon="Delete" />
+                                <el-button type="warning" @click="handleCustomRemove(index)" size="small" :icon="Delete" />
                             </template>
                         </el-input>
                     </div>

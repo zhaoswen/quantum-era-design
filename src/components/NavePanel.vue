@@ -22,7 +22,7 @@ export default {
     },
     width: {
       type: String,
-      default: '400px'
+      default: '350px'
     },
     // 指定某个边显示边框
     locationBorder: {
@@ -36,14 +36,15 @@ export default {
 
 <style scoped>
 .nav-panel-header {
-  height: 25px;
+  height: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  background-color: rgba(238, 238, 238, 0.27);
+  font-size: 12px;
   /* font-weight: bold; */
   text-align: left;
-  padding: 10px 16px;
+  padding: 5px 16px;
   border-bottom: 1px solid #ebebeb;
   /* 隐藏超出的部分 */
   white-space: nowrap;
