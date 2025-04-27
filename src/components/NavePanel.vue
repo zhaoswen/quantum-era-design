@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .nav-panel-header {
-  height: 18px;
+  height: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;

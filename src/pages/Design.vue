@@ -64,7 +64,7 @@
           </VueFlow>
           <el-empty class="empty" image-size=0 v-else>
             <template #description>
-              <p class="empty-description-title">Simx Era Design</p>
+              <p class="empty-description-title">Era Design</p>
               <p class="empty-description-text">适用于 Simx Quantum Engine 的流程设计器</p>
             </template>
           </el-empty>
@@ -318,8 +318,8 @@ onConnect(addEdges)
   color: #8c8c8c;
   font-family: 'dingtalk', serif;
   font-weight: 300;
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .empty-description-text {
