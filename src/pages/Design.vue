@@ -63,6 +63,9 @@
             </template>
           </VueFlow>
           <el-empty class="empty" image-size=0 v-else>
+            <template #image>
+              <div></div>
+            </template>
             <template #description>
               <p class="empty-description-title">Era Design</p>
               <p class="empty-description-text">适用于 Simx Quantum Engine 的流程设计器</p>
@@ -199,7 +202,7 @@ onConnect(addEdges)
 .panel {
   display: flex;
   flex-direction: column;
-  width: 235px;
+  width: 300px;
 }
 
 .mainBar {

@@ -95,15 +95,15 @@ const workspaceOpend = computed(() => {
 }
 
 .logo {
-  width: 180px;
-  margin-bottom: 25px;
+  width: 100px;
+  margin-bottom: 15px;
 }
 
 .title {
   font-size: 25px;
   font-family: 'dingtalk', serif;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #000;
   display: block;
 }

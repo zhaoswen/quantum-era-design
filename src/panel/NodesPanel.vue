@@ -74,38 +74,35 @@ const project = useProjectStore();
             </div>
           </div>
         </el-collapse-item>
-
       </el-collapse>
-
     </div>
   </NavePanel>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .sidebar {
   width: 100%;
 }
 
 .sidebar .nodes {
   display: flex;
-  flex-wrap: wrap; /* 允许换行 */
-  justify-content: left; /* 子元素之间有间距 */
+  flex-wrap: wrap;
+  justify-content: left;
   align-items: flex-start;
   justify-items: center;
 }
 
 .sidebar .nodes > div {
   margin-bottom: 10px;
-  margin-right: 10px; /* 添加水平间距 */
+  margin-right: 10px;
   font-size: 11px;
   text-align: center;
   line-height: 30px;
   height: 30px;
-  /*width: calc(33.333% - 10px); */
-  width: 90px; /* 每行显示三个节点 */
+  width: 75px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14);
 }
 
 .sidebar .nodes > div:last-child {
@@ -129,7 +126,10 @@ const project = useProjectStore();
 }
 
 .sidebar_exec:hover {
-  background-color: rgb(0, 113, 181);
+  // aaa
+  background-color: rgb(0, 160, 255);
+
+  box-shadow: 1px 1px 5px 8px rgba(0, 0, 0, 0.14)
 }
 
 .sidebar_note {
