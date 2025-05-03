@@ -53,6 +53,11 @@ export async function compiler() {
             continue;
         }
 
+        // 单独处理封装节点
+        // if (node.type == "wrapper") {
+        //     node_tags.push("Wrapper");
+        // }
+
         // 下游节点数据列表
         let downstream = [];
         let handler = node.data.basic.handler || "";

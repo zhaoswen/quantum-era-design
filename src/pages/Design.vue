@@ -21,7 +21,7 @@
           <NaveMenuButtom :icon="StereoNesting" label="节点" location="right"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'nodes'"
                           @click="mainBarButtonClick('nodes', 'left')"/>
-          <NaveMenuButtom :icon="ApiApp" label="封装" location="right" :disabled="true"
+          <NaveMenuButtom :icon="ApiApp" label="封装" location="right" :disabled="false"
                           :selected="runtime.showToolLeft && runtime.currentToolLeft === 'container'"
                           @click="mainBarButtonClick('container', 'left')"/>
         </div>

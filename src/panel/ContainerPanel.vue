@@ -39,34 +39,44 @@ const { onDragStart } = useDragAndDrop()
     </div>
   </NavePanel>
 </template>
-
-<style scoped>
+<style scoped lang="scss">
 .sidebar {
   width: 100%;
 }
 
-.sidebar .nodes > div {
-  margin-bottom: 10px;
-  text-align: center;
-  line-height: 35px;
-  height: 35px;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+.sidebar .nodes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: flex-start;
+  justify-items: center;
 }
 
-.sidebar .nodes>div:last-child {
+.sidebar .nodes > div {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 11px;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  width: 75px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14);
+}
+
+.sidebar .nodes > div:last-child {
   margin-bottom: 0;
 }
 
 .sidebar_pack {
   color: #fff;
   font-weight: bold;
-  background-color: rgb(89, 144, 255);
+  background-color: rgb(0, 94, 149);
 }
 
 .sidebar_pack:hover {
-  background-color: rgb(0, 85, 255);
+  background-color: rgb(0, 160, 255);
+  box-shadow: 1px 1px 5px 8px rgba(0, 0, 0, 0.14);
 }
 </style>
