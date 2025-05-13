@@ -76,18 +76,18 @@
                       v-show="runtime.showToolBottom && runtime.currentToolBottom === 'console'"/>
       </div>
       <AttrPanel class="panel" v-show="runtime.showToolRight && runtime.currentToolRight === 'attr'"/>
+      <AIPanel class="panel" v-show="runtime.showToolRight && runtime.currentToolRight === 'ai'"/>
       <div class="mainBar mainBarRight ">
         <div class="mainBarTop">
           <NaveMenuButtom :icon="Halo" label="属性" location="left"
                           :selected="runtime.showToolRight && runtime.currentToolRight === 'attr'"
                           @click="mainBarButtonClick('attr', 'right')"/>
-          <NaveMenuButtom :icon="CrossRingTwo" label="AI" location="left" :disabled="true"
+          <NaveMenuButtom :icon="CrossRingTwo" label="AI" location="left"
                           :selected="runtime.showToolRight && runtime.currentToolRight === 'ai'"
                           @click="mainBarButtonClick('ai', 'right')"/>
         </div>
         <div class="mainBarBottom">
-          <NaveMenuButtom :icon="SettingConfig" label="配置" location="left"
-                          @click="mainBarButtonClick('ai', 'right')"/>
+          <NaveMenuButtom :icon="SettingConfig" label="配置" location="right"/>
         </div>
       </div>
     </div>
@@ -130,6 +130,7 @@ import NaveMenuButtom from '../components/NaveMenuButtom.vue'
 import {handleKeyboardEvent} from '../core/event.ts'
 import useConfigStore from "../store/configuration.ts";
 import CollapsibleTools from "../components/CollapsibleTools.vue";
+import AIPanel from "../panel/AIPanel.vue";
 
 const {onConnect, addEdges} = useVueFlow()
 
