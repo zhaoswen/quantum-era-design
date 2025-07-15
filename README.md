@@ -1,8 +1,8 @@
-# Simx 流设计器
+# Quantum 流设计器
 
-> Simx 流设计工具
+> Quantum 流设计工具
 >
-> Simx Era Design
+> Quantum Era Design
 >
 > Noah Jones / NJ Labs
 >
@@ -11,16 +11,16 @@
 
 ## 介绍
 
-Simx Era Design 是轻量级的业务操作流设计器，通过设计器，你可以通过可视化界面编制需要的业务操作，如服务器脚本，定时任务、数据同步等业务操作。
-Simx Era Design 以项目（Project）的方式组织多个业务，通过工作空间（Workspace）的方式组织多个项目
+Quantum Era Design 是轻量级的业务操作流设计器，通过设计器，你可以通过可视化界面编制需要的业务操作，如服务器脚本，定时任务、数据同步等业务操作。
+Quantum Era Design 以项目（Project）的方式组织多个业务，通过工作空间（Workspace）的方式组织多个项目
 
-作为设计器的执行中枢，Simx Engine是一个通过Rust/C/C++编写的高效业务调度引擎，可以将业务原语解释为具体的操作，采用MIT协议完全开源，关于 Simx 引擎的详细解释请参照 [Simx Engine](https://github.com/njlabs/simx-engine)
+作为设计器的执行中枢，Quantum Engine是一个通过Rust/C/C++编写的高效业务调度引擎，可以将业务原语解释为具体的操作，采用MIT协议完全开源，关于 Quantum 引擎的详细解释请参照 [Quantum Engine](https://github.com/njlabs/quantum-engine)
 
 ## 特性
 
 - 轻量级框架，占用的资源较低
-- 高度兼容，与 Simx Engine 完全兼容，允许直接编译并运行Simx Engine的业务流
-- 开源免费，SED（Simx Era Design）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
+- 高度兼容，与 Quantum Engine 完全兼容，允许直接编译并运行Quantum Engine的业务流
+- 开源免费，SED（Quantum Era Design）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
 
 ### 项目框架
 
@@ -43,19 +43,19 @@ Simx Era Design 以项目（Project）的方式组织多个业务，通过工作
 
 > 注意，目前维护者人数有限，仅对 Windows 11 较新版本及 Macos Sequoia 15.4 （ARM）版本提供支持，理论支持旧版本操作系统，但不直接参与支持，如果发现问题请在社区反馈
 
-- [Windows](https://github.com/njlabs/simx-era-design/releases/download/v0.1.0/simx-era-design-0.1.0-x86_64-pc-windows-msvc.zip)
-- [MacOS](https://github.com/njlabs/simx-era-design/releases/download/v0.1.0/simx-era-design-0.1.0-aarch64-apple-darwin.zip)
+- [Windows](https://github.com/njlabs/quantum-era-design/releases/download/v0.1.0/quantum-era-design-0.1.0-x86_64-pc-windows-msvc.zip)
+- [MacOS](https://github.com/njlabs/quantum-era-design/releases/download/v0.1.0/quantum-era-design-0.1.0-aarch64-apple-darwin.zip)
 
 #### 编译安装
 
-如果你有一些特殊的需求，比如要对SD项目进行定制化或更改图标，可以通过直接编译源代码的方式进行安装，Simx Era Design 需要以下的运行环境：
+如果你有一些特殊的需求，比如要对SD项目进行定制化或更改图标，可以通过直接编译源代码的方式进行安装，Quantum Era Design 需要以下的运行环境：
 
 - Node Js 20+
 - Rust 1.8+
 
 ## 版本更新
 
-Simx Era Design 遵循以下更新原则
+Quantum Era Design 遵循以下更新原则
 
 > 发行年份.主版本号.次版本号（1-2位）小版本（2位数字，最后两位必然为小版本）
 
@@ -76,7 +76,7 @@ Simx Era Design 遵循以下更新原则
 
 #### 季度更新（Season）
 
-每季的立春、立夏、立秋、立冬发布当年的正式版本（如2025年立春时发布春季版，即2025.1）
+每季发布当年的正式版本（如2025年立春时发布春季版，即2025.1）
 
 #### 月度更新（Monthly）
 
@@ -86,13 +86,6 @@ Simx Era Design 遵循以下更新原则
 
 不定时更新小版本（即最后两位数字），作为日常或紧急更新
 
-## 本年版本
-
-- 春季版（2025.1 RC）：2025.02.03发布
-- 夏季版（2025.2 RC）：2025.05.05发布
-- 秋季版（2025.3 RC）：2025.08.07发布
-- 冬季版（2025.4 RC）：2025.11.07发布
-
 ### 提示
 
 - 测试中发现的问题欢迎在 `issues` 中提出
@@ -101,20 +94,20 @@ Simx Era Design 遵循以下更新原则
 
 ## 名词定义
 
-> Simx Era Design 允许编译为Blueprint可执行文件（.bp），此文件需要与Simx Engine 配合使用
+> Quantum Era Design 允许编译为 `Blueprint` 可执行文件（.bp），此文件需要与Quantum Engine 配合使用
 
 - .bps：蓝图源文件，可以运行，但占用空间较大（存在一些引擎不需要的数据）
 - .bp：蓝图文件，编译后的蓝图，可以打开，但没有注释，且布局可能比较混乱
 
-- Config：Simx Design 的配置
-- Profile：特指适用于Simx Era Design 用于解析蓝图节点属性的配置，一般称为描述文件
+- Config：Quantum Design 的配置
+- Profile：特指适用于Quantum Era Design 用于解析蓝图节点属性的配置，一般称为描述文件
 
-- Plugin：专指用于Simx Era Design 的插件
+- Plugin：专指用于Quantum Era Design 的插件
   - 扩展描述：包含Extension 的处理器和服务的描述文件
   - 主题扩展：包含新的设计器主题，包括配色、布局、图标等
   - 节点扩展：包含新的节点类型
   - 语言包：包含新的语言包，默认附带中文语言包
-- Extension：特指Simx 引擎的扩展插件
+- Extension：特指Quantum 引擎的扩展插件
 
 ## 项目历史
 

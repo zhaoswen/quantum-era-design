@@ -1,1 +1,11 @@
-{"author":"zhaosw","description":"Simx 引擎默认附带的处理器，此内容请勿禁用与卸载，可能引起不可预知的问题","email":"hi@tineaine.cn","homepage":"http://simx.zhaosw.site","id":"simx","license":"MIT","name":"Simx 基础库","updateDate":"2025-01-10T06:20:06.000+00:00","version":"0.1.0"}
+{
+  "author": "zhaosw",
+  "description": "Simx 引擎默认附带的处理器，此内容请勿禁用与卸载，可能引起不可预知的问题",
+  "email": "hi@tineaine.cn",
+  "homepage": "http://simx.zhaosw.site",
+  "id": "simx",
+  "license": "MIT",
+  "name": "Simx 基础库",
+  "updateDate": "2025-01-10T06:20:06.000+00:00",
+  "version": "0.1.0"
+}
