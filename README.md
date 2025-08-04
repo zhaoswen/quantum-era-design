@@ -20,7 +20,7 @@ Quantum Era Studio 以项目（Project）的方式组织多个业务，通过工
 
 - 轻量级框架，占用的资源较低
 - 高度兼容，与 Quantum Engine 完全兼容，允许直接编译并运行Quantum Engine的业务流
-- 开源免费，SED（Quantum Era Studio）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
+- 开源免费，QES（Quantum Era Studio）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
 
 ### 项目框架
 
