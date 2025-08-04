@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Era Design",
+        "title": "Era Studio",
         "dragDropEnabled": false,
         "width": 1000,
         "height": 600,

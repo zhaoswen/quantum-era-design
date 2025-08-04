@@ -28,8 +28,8 @@ const workspaceOpend = computed(() => {
         <!-- 图片Logo -->
         <img src="/icon.png" class="logo" alt="Logo"/>
         <!-- 标题 -->
-        <span class="title">Era Design</span>
-        <div class="description">Simx Era Design 2025.2 夏季版</div>
+        <span class="title">Quantum Studio</span>
+        <div class="description">Quantum Studio 2025.3 秋季版</div>
         <div>
           <el-tooltip content="点击打开工作区，也可以选择一个空文件夹作为工作区" placement="bottom" effect="light">
             <el-button type="primary" link @click="openWorkspace">点击打开一个工作区</el-button>

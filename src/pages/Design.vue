@@ -67,7 +67,7 @@
               <div></div>
             </template>
             <template #description>
-              <p class="empty-description-title">Era Design</p>
+              <p class="empty-description-title">Era Studio</p>
               <p class="empty-description-text">适用于 Simx Quantum Engine 的流程设计器</p>
             </template>
           </el-empty>

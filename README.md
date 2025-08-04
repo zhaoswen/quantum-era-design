@@ -2,7 +2,7 @@
 
 > Quantum 流设计工具
 >
-> Quantum Era Design
+> Quantum Era Studio
 >
 > Noah Jones / NJ Labs
 >
@@ -11,8 +11,8 @@
 
 ## 介绍
 
-Quantum Era Design 是轻量级的业务操作流设计器，通过设计器，你可以通过可视化界面编制需要的业务操作，如服务器脚本，定时任务、数据同步等业务操作。
-Quantum Era Design 以项目（Project）的方式组织多个业务，通过工作空间（Workspace）的方式组织多个项目
+Quantum Era Studio 是轻量级的业务操作流设计器，通过设计器，你可以通过可视化界面编制需要的业务操作，如服务器脚本，定时任务、数据同步等业务操作。
+Quantum Era Studio 以项目（Project）的方式组织多个业务，通过工作空间（Workspace）的方式组织多个项目
 
 作为设计器的执行中枢，Quantum Engine是一个通过Rust/C/C++编写的高效业务调度引擎，可以将业务原语解释为具体的操作，采用MIT协议完全开源，关于 Quantum 引擎的详细解释请参照 [Quantum Engine](https://github.com/njlabs/quantum-engine)
 
@@ -20,7 +20,7 @@ Quantum Era Design 以项目（Project）的方式组织多个业务，通过工
 
 - 轻量级框架，占用的资源较低
 - 高度兼容，与 Quantum Engine 完全兼容，允许直接编译并运行Quantum Engine的业务流
-- 开源免费，SED（Quantum Era Design）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
+- 开源免费，SED（Quantum Era Studio）项目采用GPL V3 协议完全开源，允许用户自由定制和扩展
 
 ### 项目框架
 
@@ -48,14 +48,14 @@ Quantum Era Design 以项目（Project）的方式组织多个业务，通过工
 
 #### 编译安装
 
-如果你有一些特殊的需求，比如要对SD项目进行定制化或更改图标，可以通过直接编译源代码的方式进行安装，Quantum Era Design 需要以下的运行环境：
+如果你有一些特殊的需求，比如要对SD项目进行定制化或更改图标，可以通过直接编译源代码的方式进行安装，Quantum Era Studio 需要以下的运行环境：
 
 - Node Js 20+
 - Rust 1.8+
 
 ## 版本更新
 
-Quantum Era Design 遵循以下更新原则
+Quantum Era Studio 遵循以下更新原则
 
 > 发行年份.主版本号.次版本号（1-2位）小版本（2位数字，最后两位必然为小版本）
 
@@ -94,15 +94,15 @@ Quantum Era Design 遵循以下更新原则
 
 ## 名词定义
 
-> Quantum Era Design 允许编译为 `Blueprint` 可执行文件（.bp），此文件需要与Quantum Engine 配合使用
+> Quantum Era Studio 允许编译为 `Blueprint` 可执行文件（.bp），此文件需要与Quantum Engine 配合使用
 
 - .bps：蓝图源文件，可以运行，但占用空间较大（存在一些引擎不需要的数据）
 - .bp：蓝图文件，编译后的蓝图，可以打开，但没有注释，且布局可能比较混乱
 
 - Config：Quantum Design 的配置
-- Profile：特指适用于Quantum Era Design 用于解析蓝图节点属性的配置，一般称为描述文件
+- Profile：特指适用于Quantum Era Studio 用于解析蓝图节点属性的配置，一般称为描述文件
 
-- Plugin：专指用于Quantum Era Design 的插件
+- Plugin：专指用于Quantum Era Studio 的插件
   - 扩展描述：包含Extension 的处理器和服务的描述文件
   - 主题扩展：包含新的设计器主题，包括配色、布局、图标等
   - 节点扩展：包含新的节点类型
