@@ -46,13 +46,13 @@ const workspaceOpend = computed(() => {
           <el-table-column label="项目路径" show-overflow-tooltip prop="path"/>
           <el-table-column align="right">
             <template #header>
-              <div class="headler-button">
+              <div class="header-button">
                 <NaveMenuButtom :icon="Plus" location="" label="创建项目" @click="createProject"/>
                 <NaveMenuButtom :icon="RefreshOne" location="" label="刷新列表" @click="reflushProjectList"/>
               </div>
             </template>
             <template #default="scope">
-              <div class="headler-button">
+              <div class="header-button">
                 <NaveMenuButtom :icon="FolderOpen" location="" label="进入项目" @click="openProject(scope.row)"/>
                 <NaveMenuButtom :icon="DeleteOne" location="" label="删除项目" @click="deleteProject(scope.row)"/>
               </div>
@@ -78,7 +78,7 @@ const workspaceOpend = computed(() => {
   font-family: 'puhui', serif;
 }
 
-.headler-button {
+.header-button {
   display: flex;
   justify-content: end;
   align-items: center;

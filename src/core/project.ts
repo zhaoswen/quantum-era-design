@@ -87,7 +87,7 @@ export function createProject() {
             // 要插件的路径，必须是一个文件夹的路径
             projectPath: res,
             // 项目类型，目前仅支持se：
-            // 1. se：Simx Engine Project，流引擎标准项目
+            // 1. se：Engine Project，流引擎标准项目
             // 2. mx：Mixture Project，混合开发项目
             // 3. lx：Lesi programme language project，Lesi 编程语言项目
             projectType: "se",
@@ -169,13 +169,13 @@ export async function openProject(row: any) {
     }
 
     project.project_dependencies = row.dependencies as Dependency[];
-    if (!project.project_dependencies || project.project_dependencies.length == 0){
-        project.project_dependencies = [];
-        project.project_dependencies.push({
-            name: "simx",
-            path: "simx"
-        })
-    }
+    // if (!project.project_dependencies || project.project_dependencies.length == 0){
+    //     project.project_dependencies = [];
+    //     project.project_dependencies.push({
+    //         name: "simx",
+    //         path: "simx"
+    //     })
+    // }
     await refreshProject();
     await loadProjectDependencies(project.project_dependencies)
     // 跳转到设计器
